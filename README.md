@@ -1,3 +1,5 @@
+# Dependency Environment Configuration
+
 ##  Conda Installation
 
 ### download and installation
@@ -51,3 +53,43 @@ echo "PATH=PATH/cellranger/7.1.0/bin:$PATH" >>~/.bashrc
 ```
 conda install -c bioconda seqkit
 ```
+
+# Operating Instructions for BSCMatrix
+
+## Filling in the Configuration File
+```
+FQ1      /path/to/read_1.fq.gz
+FQ2      /path/to/read_2.fq.gz
+FA       /path/to/ref/file
+GTF      /path/to/gtf/file
+OUTDIR   /path/to/result/dir/
+PREFIX    outfile-prefix
+## other parameters   Other configuration parameters (expected number of cells, number of threads, maximum memory limit of 100Gb, "Nobam" set to 0 represents no output of bam, and setting other characters represents output)
+EC          3000
+Threads      8
+RAM         100
+Nobam       1
+##ENV  Optional. If not provided, it will be placed in the environment variable
+Rscript   /path/to/R/bin/
+```
+
+## BSCMatrix Execution
+
+The process is divided into four steps with the following functions:
+
+Step 1: Run fastq2BcUmiSC_v1.1 to identify barcodes and UMIs from fastq data.
+
+Step 2: Call the Cell Ranger program to obtain the gene expression matrix.
+
+Step 3: Run QC to perform UMAP and t-SNE analysis.
+
+Step 4: Run WebReport to generate a web-based report.
+
+## Reference Commands
+
+./BSCMatrix -c config.txt -s 0
+
+./BSCMatrix -c config.txt -s 1,2,3,4
+
+./BSCMatrix -c config.txt -s 1,2
+
