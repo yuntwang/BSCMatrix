@@ -36,6 +36,8 @@ conda install -c conda-forge r-knitr=1.42
 conda install -c conda-forge r-rmarkdown=2.20
 conda install -c conda-forge r-optparse=1.7.3
 conda install -c conda-forge r-scales=1.3.0
+conda install -c conda-forge r-plotly=4.10.4
+conda install -c conda-forge r-shiny=1.8.0
 install.packages('DT')
 ```
 
