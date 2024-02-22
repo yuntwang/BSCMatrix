@@ -1,0 +1,21 @@
+### Globle parameters
+## data  测序数据
+FQ1      /path/to/read_1.fastq
+FQ2      /path/to/read_2.fastq
+
+## Ref genome  参考基因组和gtf文件
+FA       /path/to/ref/file
+GTF      /path/to/gtf/file
+
+## out put    输出路径以及输出结果前缀
+OUTDIR   /path/to/result/dir/
+PREFIX    outfile-prefix
+
+## other parameters   其它配置参数（期望细胞数、线程数目、内存上限100Gb，Nobam 设置为0代表不输出bam，设置其它字符代表输出）
+EC          3000
+Threads      8
+RAM         100
+Nobam	 1
+
+##ENV  ###R（如果不提供，则放到环境变量中）
+Rscript   /path/to/R/bin/
